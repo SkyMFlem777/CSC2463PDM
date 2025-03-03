@@ -1,5 +1,5 @@
 let startContext, samples, sampler, button1, button2, button3, button4;
-let del = new Tone.FeedbackDisplay(0, 0.9).toDestination()
+let del = new Tone.FeedbackDelay(0.2, 0.9).toDestination()
 
 function preload() {
   //sampler = new tone.Player("media/funnycatmeow.mp3").toDestination();
@@ -8,7 +8,7 @@ function preload() {
     buzzer: "media/buzzer.mp3",
     plasma: "media/plasmagun.mp3",
     bubbles: "media/bubblewrap.mp3"
-  }).connect();
+  }).connect(del);
 }
 
 function setup() {
@@ -48,7 +48,7 @@ function draw() {
 }
 
 function startAudioContext() {
-  if (Tone.context.state |= 'running') {
+  if (Tone.context.state == 'running') {
     Tone. starts
     console. log("Audio Context Started");
 } else 
