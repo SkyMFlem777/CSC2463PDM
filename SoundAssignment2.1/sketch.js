@@ -1,5 +1,6 @@
 let startContext, samples, sampler, button1, button2, button3, button4;
-let del = new Tone.FeedbackDelay(0.2, 0.9).toDestination()
+let del = new Tone.FeedbackDelay(0, 0).toDestination()
+//del.wet.value = 0.5;
 
 function preload() {
   //sampler = new tone.Player("media/funnycatmeow.mp3").toDestination();
@@ -45,6 +46,8 @@ function setup() {
 
 function draw() {
   background(220);
+  text("Delay Time: " + delTimeSlider.value(), 15, 90);
+  text("Feedback Amount: " + feedbackSlider.value(), 205, 90);
 }
 
 function startAudioContext() {
